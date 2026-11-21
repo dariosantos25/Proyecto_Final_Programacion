@@ -250,15 +250,15 @@ def revisar_archivos():
     print(df.dtypes)
     print(df.head())
     print(df.tail())
-    print ("Valores nulos:")
+    print ("Valores nulos: ")
     print(df.isnull().sum())
     print("Cantidad de registros:",len(df))
 
-# Crear la carpeta para guardar los archivos CSV
-os.makedirs("datos", exist_ok=True)
+#Crear la carpeta para guardar los archivos CSV
+os.makedirs("datos",  exist_ok=True)
 
-# Ejecutar las consultas y revisar los archivos
-if __name__ == "__main__":
+#Ejecutar las consultas y revisar los archivos
+if __name__  ==  "__main__":
     consultar_inpc()
     consultar_nacimientos()
     consultar_fecundidad()
