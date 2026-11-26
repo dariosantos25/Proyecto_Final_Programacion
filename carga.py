@@ -15,7 +15,7 @@ def conectar():
 #Funcion para leer los datos integrados
 def leer_datos():
    #Leer el archivo CSV
-   df = pd.read_csv("Datos_Integrados.csv")
+   df = pd.read_csv("datos/Datos_Integrados.csv")
 
    #Mostrar la informacion del archivo
    print("\nDatos integrados")

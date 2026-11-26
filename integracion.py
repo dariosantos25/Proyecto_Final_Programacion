@@ -3,12 +3,12 @@ import pandas as pd
 #Integrar los archivos transformados en una sola tabla
 def integrar_datos():
    #Cargar los archivos transformados
-   df_inpc= pd.read_csv("Inpc_Preparado.csv")
-   df_nacimientos =pd.read_csv("Nacimientos_Transformados.csv")
-   df_fecundidad= pd.read_csv("Fecundidad_Transformada.csv")
-   df_consumo= pd.read_csv("Consumo_Transformado.csv")
-   df_crecimiento =pd.read_csv("Crecimiento_Consumo_Transformado.csv")
-   df_consumo_pib =pd.read_csv("Consumo_Pib_Transformado.csv")
+   df_inpc= pd.read_csv("datos/Inpc_Preparado.csv")
+   df_nacimientos =pd.read_csv("datos/Nacimientos_Transformados.csv")
+   df_fecundidad= pd.read_csv("datos/Fecundidad_Transformada.csv")
+   df_consumo= pd.read_csv("datos/Consumo_Transformado.csv")
+   df_crecimiento =pd.read_csv("datos/Crecimiento_Consumo_Transformado.csv")
+   df_consumo_pib =pd.read_csv("datos/Consumo_Pib_Transformado.csv")
 
    #Cambiar los nombres de las columnas
    df_nacimientos.rename(columns={"Valor":"Nacimientos"},inplace=True)
@@ -84,7 +84,7 @@ def integrar_datos():
    print(df.describe())
 
    # Guardar los datos integrados
-   df.to_csv("Datos_Integrados.csv", index=False, encoding="utf-8-sig")
+   df.to_csv("datos/Datos_Integrados.csv", index=False, encoding="utf-8-sig")
 
 # Ejecutar la integración
 if __name__ == "__main__":

@@ -2,7 +2,7 @@ import pandas as pd
 
 #Transformar los datos mensuales del INPC a datos anuales
 def transformar_inpc():
-   df= pd.read_csv("Inpc_Inegi.csv")
+   df= pd.read_csv("datos/Inpc_Inegi.csv")
    #Convertir el periodo a formato fecha
    df["Periodo"]= pd.to_datetime(df["Periodo"], format="%Y/%m")
    # Obtener el año del periodo
@@ -20,11 +20,11 @@ def transformar_inpc():
    print("Cantidad de registros:", len(df))
 
    #Guardar los datos transformados
-   df.to_csv("Inpc_Anual.csv",index=False, encoding="utf-8-sig")
+   df.to_csv("datos/Inpc_Anual.csv",index=False, encoding="utf-8-sig")
 
 #Ordenar los datos de nacimientos por año
 def transformar_nacimientos():
-   df= pd.read_csv("Nacimientos_Inegi.csv")
+   df= pd.read_csv("datos/Nacimientos_Inegi.csv")
 
    #Ordenar los datos por año
    df.sort_values("Periodo", inplace=True)
@@ -39,11 +39,11 @@ def transformar_nacimientos():
 
 
    #Guardar los datos transformados
-   df.to_csv("Nacimientos_Transformados.csv", index=False, encoding="utf-8-sig")
+   df.to_csv("datos/Nacimientos_Transformados.csv", index=False, encoding="utf-8-sig")
 
 #Ordenar los datos de fecundidad por año
 def transformar_fecundidad():
-   df =pd.read_csv("Fecundidad_Bm.csv")
+   df =pd.read_csv("datos/Fecundidad_Bm.csv")
 
    #Ordenar los datos por año
    df.sort_values("Periodo", inplace=True)
@@ -57,11 +57,11 @@ def transformar_fecundidad():
    print("Cantidad de registros:", len(df))
 
    #Guardar los datos transformados
-   df.to_csv("Fecundidad_Transformada.csv", index=False, encoding="utf-8-sig")
+   df.to_csv("datos/Fecundidad_Transformada.csv", index=False, encoding="utf-8-sig")
 
 #Ordenar los datos de consumo por año
 def transformar_consumo():
-   df= pd.read_csv("Consumo_Bm.csv")
+   df= pd.read_csv("datos/Consumo_Bm.csv")
 
    #Ordenar los datos por año
    df.sort_values("Periodo", inplace=True)
@@ -75,11 +75,11 @@ def transformar_consumo():
    print("Cantidad de registros:", len(df))
 
    #Guardar los datos transformados
-   df.to_csv("Consumo_Transformado.csv", index=False, encoding="utf-8-sig")
+   df.to_csv("datos/Consumo_Transformado.csv", index=False, encoding="utf-8-sig")
 
 #Ordenar los datos de crecimiento del consumo por año
 def transformar_crecimiento():
-   df =pd.read_csv("Crecimiento_Consumo_Bm.csv")
+   df =pd.read_csv("datos/Crecimiento_Consumo_Bm.csv")
 
    #Ordena los datos por año
    df.sort_values("Periodo",inplace=True)
@@ -93,12 +93,12 @@ def transformar_crecimiento():
    print("Cantidad de registros:", len(df))
 
    #Guardar los datos transformados
-   df.to_csv("Crecimiento_Consumo_Transformado.csv", index=False, encoding="utf-8-sig")
+   df.to_csv("datos/Crecimiento_Consumo_Transformado.csv", index=False, encoding="utf-8-sig")
 
 
 #Ordenar los datos de consumo como porcentaje del PIB por año
 def transformar_consumo_pib():
-   df= pd.read_csv("Consumo_Pib_Bm.csv")
+   df= pd.read_csv("datos/Consumo_Pib_Bm.csv")
 
 
    #Ordenar los datos por año
@@ -113,11 +113,11 @@ def transformar_consumo_pib():
    print("Cantidad de registros:", len(df))
 
    #Guardar los datos transformados
-   df.to_csv("Consumo_Pib_Transformado.csv", index=False, encoding="utf-8-sig")
+   df.to_csv("datos/Consumo_Pib_Transformado.csv", index=False, encoding="utf-8-sig")
 
 #Preparar los datos del INPC para su integración
 def preparar_inpc():
-   df =pd.read_csv("Inpc_Anual.csv")
+   df =pd.read_csv("datos/Inpc_Anual.csv")
 
    #Convertir los indicadores en columnas
    df =df.pivot(index="Periodo",columns="Indicador", values="Valor")
@@ -149,17 +149,17 @@ def preparar_inpc():
    print("Cantidad de registros:",len(df))
 
    #Guardar los datos preparados
-   df.to_csv("Inpc_Preparado.csv",index=False, encoding="utf-8-sig")
+   df.to_csv("datos/Inpc_Preparado.csv",index=False, encoding="utf-8-sig")
 
 #Revisar los archivos generados durante la transformación
 def revisar_archivos():
-   df_inpc = pd.read_csv("Inpc_Anual.csv")
-   df_nacimientos =pd.read_csv("Nacimientos_Transformados.csv")
-   df_fecundidad =pd.read_csv("Fecundidad_Transformada.csv")
-   df_consumo= pd.read_csv("Consumo_Transformado.csv")
-   df_crecimiento =pd.read_csv("Crecimiento_Consumo_Transformado.csv")
-   df_consumo_pib =pd.read_csv("Consumo_Pib_Transformado.csv")
-   df_inpc_preparado = pd.read_csv("Inpc_Preparado.csv")
+   df_inpc = pd.read_csv("datos/Inpc_Anual.csv")
+   df_nacimientos =pd.read_csv("datos/Nacimientos_Transformados.csv")
+   df_fecundidad =pd.read_csv("datos/Fecundidad_Transformada.csv")
+   df_consumo= pd.read_csv("datos/Consumo_Transformado.csv")
+   df_crecimiento =pd.read_csv("datos/Crecimiento_Consumo_Transformado.csv")
+   df_consumo_pib =pd.read_csv("datos/Consumo_Pib_Transformado.csv")
+   df_inpc_preparado = pd.read_csv("datos/Inpc_Preparado.csv")
 
    print("\nRevisión de archivos transformados")
 
